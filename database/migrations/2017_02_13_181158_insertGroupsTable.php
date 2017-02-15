@@ -17,7 +17,7 @@ class InsertGroupsTable extends Migration
             $table->increments('id')->index();
             $table->string('en');
             $table->string('ru');
-            $table->string('ukr');
+            $table->string('ua');
             $table->timestamps();
         });
     }

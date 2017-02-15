@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Group;
 use GuzzleHttp\Client;
 use \App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Symfony\Component\VarDumper\VarDumper;
 
 /**
@@ -45,6 +47,22 @@ class GroupController extends Controller
         }
 
         return response()->json($result);
+    }
+
+    public function setGroups(Request $req)
+    {
+        $model = new Group();
+        if ($req->isJson()) {
+            foreach ($req->get('groups') as $item) {
+                $model->id = $item['id'];
+                $model->en = $item['en'];
+                $model->ru = $item['ru'];
+                $model->ua = $item['ua'];
+                VarDumper::dump($model);
+                die;
+//                $model->save();
+            }
+        }
     }
 
 }

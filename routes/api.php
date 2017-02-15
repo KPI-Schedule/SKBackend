@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('groups', 'Api\GroupController@getAllGroups');
+Route::post('groups', 'Api\GroupController@setGroups');
